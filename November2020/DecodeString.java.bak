@@ -7,7 +7,6 @@ class DecodeString {
         int k =0;
         for(char c :  s.toCharArray()){
             if(Character.isDigit(c)){
-				//(c-'0') can be replaced with Character.getNumericValue(c) for better readability
                 k = k*10 + (c-'0');
             } else if (Character.isLetter(c)){
                 currStr.append(c);
