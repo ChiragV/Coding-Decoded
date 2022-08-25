@@ -7,11 +7,11 @@ class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
         int [] hash = new int[26];
         for (char ch : magazine.toCharArray()) {
-            hash[(int)ch-97] += 1;
+            hash[ch-'a'] += 1;
         }
         for (char ch : ransomNote.toCharArray()) {
-            hash[(int)ch-97] -= 1;
-            if (hash[(int)ch-97] < 0)
+            hash[ch-'a'] -= 1;
+            if (hash[ch-'a'] < 0)
                 return false;
         }
         return true;
