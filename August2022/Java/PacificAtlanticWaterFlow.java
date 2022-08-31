@@ -14,14 +14,14 @@ class PacificAtlanticWaterFlow
         
         for(int j=0;j<cols;j++)
         {
-            dfs(heights,0,j,Integer.MIN_VALUE,paci);//pacific top
-            dfs(heights,rows-1,j,Integer.MIN_VALUE,atlan);//atlanic down
+            dfs(heights,0,j,Integer.MIN_VALUE,paci);//Pacific top
+            dfs(heights,rows-1,j,Integer.MIN_VALUE,atlan);//Atlantic down
         }
         
         for(int i=0;i<rows;i++)
         {
-            dfs(heights,i,0,Integer.MIN_VALUE,paci);//pacific left side
-            dfs(heights,i,cols-1,Integer.MIN_VALUE,atlan); //atlan right side
+            dfs(heights,i,0,Integer.MIN_VALUE,paci);//Pacific left side
+            dfs(heights,i,cols-1,Integer.MIN_VALUE,atlan); //Atlantic right side
         }
         for(int i=0;i<rows;i++)
         {
@@ -41,8 +41,9 @@ class PacificAtlanticWaterFlow
             return; //out of bound
         if(visited[i][j])
             return; //already visited
-        if(heights[i][j]<prev) return; /*this is bit confusing part=> this means !(heights[i][j]>=prev)*/
-        //For e.g. For Pacific Ocean : this means water will flow from top to bottom and not other way around
+        if(heights[i][j]<prev) return; 
+		/*This is bit confusing part=> this means "!(heights[i][j]>=prev)"
+        For e.g. For Pacific Ocean : this means water will flow from top to bottom and not other way around and we don't want that hence return*/
         visited[i][j]=true;
 		/*
 		question is about if rain on island can flow from island to ocean ( and not other way around i.e. question is not if ocean water can come to island )
